@@ -140,7 +140,7 @@ function confirm() {
     getInputValue(i, 2).disabled = true;
     confirmBtn.disabled = true;
   }
-
+  console.log(pairs);
   pipeline = new Pipeline(pairs);
 }
 
@@ -235,7 +235,7 @@ class Pipeline {
     let firstEl = copyOfPairsInfo.shift();
     if (firstEl && firstEl.stage === this.maxStages) {
       let originalFirstElement = this.pairsInfo.shift();
-      originalFirstElement.tact = this.tact + 1;
+      originalFirstElement.tact = this.tact;
       this.finishedPairs.unshift(originalFirstElement);
       this.stagesInfo[`stage${originalFirstElement.priority - 1}`].status = 'free';
       this.stagesInfo[`stage${originalFirstElement.priority - 1}`].pair = null;
